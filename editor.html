@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゲーム情報エディター</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .editor-form label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .editor-form input, .editor-form textarea { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 6px; border: 1px solid var(--border-color); }
+        .editor-form textarea { min-height: 100px; font-family: monospace; }
+        .editor-form .button { width: 100%; padding: 15px; font-size: 1.2rem; }
+        #output-code { background-color: #e4e6eb; color: #3d3d3d; border: 1px solid #ccc; white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="site-logo">
+                    <a href="index.html"><h1 class="site-main-title">ゲーム情報エディター</h1></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-content">
+        <div class="container">
+            <div class="card">
+                <h2 class="section-title">ゲームカード生成ツール</h2>
+                <p>以下のフォームに情報を入力し、「コードを生成」ボタンを押してください。<br>生成されたHTMLコードをコピーして、`games.html`に貼り付けると、新しいゲームを追加できます。</p>
+                
+                <form id="game-editor-form" class="editor-form">
+                    <label for="title">ゲームタイトル</label>
+                    <input type="text" id="title" required>
+
+                    <label for="description">ゲームの概要</label>
+                    <textarea id="description" rows="4" required></textarea>
+
+                    <label for="image-url">画像URL</label>
+                    <input type="text" id="image-url" placeholder="https://placehold.co/400x225/..." required>
+
+                    <label for="game-url">ゲームのURL</label>
+                    <input type="text" id="game-url" required>
+                    
+                    <label for="feedback-url">改修要望フォームのURL</label>
+                    <input type="text" id="feedback-url" required>
+
+                    <label for="story-url">開発ストーリーページのURL</label>
+                    <input type="text" id="story-url" placeholder="story-game1.html など" required>
+
+                    <button type="button" class="button" onclick="generateCode()">コードを生成</button>
+                </form>
+
+                <div id="output-area" style="display: none; margin-top: 30px;">
+                    <h3>生成されたHTMLコード</h3>
+                    <p>以下のコードをコピーして、`games.html`ファイルの`<div class="game-list">`と`</div>`の間に貼り付けてください。</p>
+                    <textarea id="output-code" rows="15" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function generateCode() {
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const imageUrl = document.getElementById('image-url').value;
+            const gameUrl = document.getElementById('game-url').value;
+            const feedbackUrl = document.getElementById('feedback-url').value;
+            const storyUrl = document.getElementById('story-url').value;
+
+            if (!title || !description || !imageUrl || !gameUrl || !feedbackUrl || !storyUrl) {
+                alert('すべての項目を入力してください。');
+                return;
+            }
+
+            const htmlCode = `
+                <!-- ▼ここから ${title} の情報▼ -->
+                <div class="game-card">
+                    <img src="${imageUrl}" alt="${title}の画像" class="game-card-image">
+                    <div class="game-card-content">
+                        <h3>${title}</h3>
+                        <p>${description}</p>
+                    </div>
+                    <div class="game-card-actions">
+                        <a href="${gameUrl}" target="_blank" class="button">プレイする</a>
+                        <a href="${feedbackUrl}" target="_blank" class="button secondary">意見を送る</a>
+                        <a href="${storyUrl}" class="button tertiary">開発ストーリー</a>
+                    </div>
+                </div>
+                <!-- ▲ここまでが ${title} の情報▲ -->`;
+
+            document.getElementById('output-code').value = htmlCode.trim().replace(/^ +/gm, '');
+            document.getElementById('output-area').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
