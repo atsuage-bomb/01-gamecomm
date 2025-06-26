@@ -1,0 +1,253 @@
+/* style.css */
+/* このファイルはサイト全体のデザインを定義します。 */
+
+/* :root は色の変数を定義する場所です。ここを変更するとサイト全体の配色を一括で変更できます。 */
+:root {
+    --primary-color: #34495e; /* メインカラー（落ち着いた青） */
+    --secondary-color: #3498db; /* アクセントカラー（明るい青） */
+    --tertiary-color: #e67e22; /* 強調したいボタンの色（オレンジ） */
+    --background-color: #f8f9fa; /* 背景色（ごく薄いグレー） */
+    --text-color: #333; /* 基本テキストカラー */
+    --card-bg-color: #ffffff; /* カードの背景色 */
+    --font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+/* --- ヘッダーとナビゲーション --- */
+header {
+    background: var(--primary-color);
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+nav {
+    background-color: var(--secondary-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* --- メインコンテンツのスタイル --- */
+main {
+    padding: 30px 0;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.section {
+    background-color: var(--card-bg-color);
+    padding: 30px 40px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* --- ボタンのスタイル --- */
+.button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white !important; /* aタグのcolorを上書き */
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.button.feedback {
+    background-color: var(--tertiary-color);
+}
+
+/* --- ゲームリストのスタイル --- */
+.game-list {
+    display: grid;
+    /* 画面幅に応じて列数を自動調整 */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.game-card {
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.game-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #eee;
+}
+
+.game-card-content {
+    padding: 20px 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.game-card p {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.game-card-actions {
+    margin-top: auto; /* ボタンをカードの下部に配置 */
+    display: flex;
+    gap: 10px; /* ボタン間の隙間 */
+}
+
+.game-card-actions .button {
+    flex: 1; /* ボタンの幅を均等に */
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 10px 15px;
+}
+
+/* --- チーム紹介ページ用スタイル --- */
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* スマホ表示で折り返す */
+}
+
+.team-member-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.team-member-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.team-member-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.5rem;
+}
+.team-member-info strong {
+    color: var(--secondary-color);
+}
+
+/* --- フッター --- */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 40px;
+}
+
+/* --- スマートフォン対応 --- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    nav ul li {
+        margin: 0 8px;
+    }
+    nav ul li a {
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .section {
+        padding: 20px;
+    }
+    .team-member {
+        flex-direction: column;
+        text-align: center;
+    }
+}
