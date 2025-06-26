@@ -1,4 +1,4 @@
-/* style.css (Gamer風・ヘッダー改善版) */
+/* style.css (レスポンシブ改善版) */
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -42,7 +42,7 @@ body {
 /* --- ヘッダー --- */
 .site-header {
     background-color: var(--header-bg);
-    padding: 20px 0; /* ヘッダーの縦幅を少し広げる */
+    padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -53,33 +53,42 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-/* ★★★ 変更点：サイトロゴ ★★★ */
 .site-logo a {
-    color: var(--primary-color);
     text-decoration: none;
-    font-size: 2.1rem; /* 文字を大きく */
-    font-weight: 900; /* より太く */
-    letter-spacing: -1px; /* 文字間を少し詰める */
 }
-/* ★★★ 変更点：ナビゲーションメニュー ★★★ */
+.site-logo .site-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin: 0;
+    line-height: 1.2;
+}
+.site-logo .site-tagline {
+    color: var(--text-color-light);
+    font-size: 0.8rem;
+    margin: 0;
+    font-weight: normal;
+}
+
 .main-nav a {
-    color: #3d3d3d; /* 通常時の文字色を濃く */
-    background-color: #e4e6eb; /* 背景色をつけブロックに見せる */
+    color: #3d3d3d;
+    background-color: #e4e6eb;
     text-decoration: none;
     font-weight: bold;
-    padding: 12px 20px; /* パディングを調整 */
+    padding: 12px 20px;
     border-radius: var(--border-radius);
     transition: all 0.2s ease-in-out;
     margin-left: 8px;
 }
 .main-nav a:hover {
-    transform: translateY(-2px); /* 少し浮き上がる効果 */
+    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background-color: #d8dade;
 }
 .main-nav a.active {
-    background-color: var(--primary-color); /* アクティブなメニューをメインカラーに */
-    color: #ffffff; /* 文字色を白に */
+    background-color: var(--primary-color);
+    color: #ffffff;
     box-shadow: 0 4px 10px rgba(24, 119, 242, 0.4);
 }
 
@@ -88,8 +97,8 @@ body {
 .site-content {
     padding: 32px 0;
 }
-h1, h2, h3 {
-    font-weight: bold;
+h1, h2, h3, p, li {
+    text-align: left;
 }
 h2.section-title {
     font-size: 1.5rem;
@@ -98,13 +107,14 @@ h2.section-title {
     border-bottom: 3px solid var(--primary-color);
 }
 
-/* --- トップページの2カラムレイアウト --- */
+/* ★★★ 変更点 ★★★ */
+/* トップページの2カラムレイアウトの切り替えポイントを960pxに変更 */
 .two-column-layout {
     display: grid;
     grid-template-columns: 1fr;
     gap: 32px;
 }
-@media (min-width: 992px) {
+@media (min-width: 960px) {
     .two-column-layout {
         grid-template-columns: 1fr 320px;
     }
@@ -123,6 +133,9 @@ h2.section-title {
     margin-top: 0;
     color: var(--primary-color);
 }
+.card .button {
+    margin-top: 20px;
+}
 
 /* --- ゲームリスト --- */
 .game-list {
@@ -130,9 +143,14 @@ h2.section-title {
     grid-template-columns: 1fr;
     gap: 20px;
 }
-@media (min-width: 768px) {
+@media (min-width: 600px) { /* スマホ横向き・タブレット縦向きで2カラム */
     .game-list {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 960px) { /* PC表示で3カラム */
+    .game-list {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 .game-card {
@@ -169,12 +187,12 @@ h2.section-title {
     gap: 10px;
 }
 .button {
-    display: block;
-    width: 100%;
+    display: inline-block;
+    width: auto;
     text-align: center;
     background-color: var(--primary-color);
     color: white !important;
-    padding: 12px;
+    padding: 12px 24px;
     text-decoration: none;
     border-radius: 6px;
     font-weight: bold;
@@ -214,11 +232,13 @@ h2.section-title {
 }
 
 /* --- スマートフォン対応 --- */
-@media (max-width: 768px) {
+@media (max-width: 959px) { /* 2カラムレイアウトが崩れるポイントでヘッダーも調整 */
     .site-header .container {
         flex-direction: column;
         gap: 20px;
     }
-    .site-logo a { font-size: 1.8rem; }
+    .site-logo {
+        text-align: center;
+    }
     .main-nav a { padding: 10px 15px; }
 }
