@@ -8,67 +8,66 @@
 </head>
 <body>
 
-    <header>
+    <header class="site-header">
         <div class="container">
-            <h1>ゲームでツナガル、世代をコエル</h1>
-            <p>すずかんゼミ01班 ゲーム共創プラットフォーム</p>
+            <div class="site-logo">
+                <a href="index.html">ゲーム共創の広場</a>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">トップ</a>
+                <a href="concept.html">コンセプト</a>
+                <a href="games.html" class="active">ゲーム一覧</a>
+                <a href="about.html">チーム紹介</a>
+            </nav>
         </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">トップ</a></li>
-            <li><a href="concept.html">コンセプト</a></li>
-            <li><a href="games.html" class="active">ゲーム一覧</a></li>
-            <li><a href="about.html">チーム紹介</a></li>
-        </ul>
-    </nav>
-
-    <main>
+    <main class="site-content">
         <div class="container">
-            <h2>みんなのゲームライブラリ</h2>
-            <p style="margin-bottom: 30px; text-align: center; font-size: 1.1rem;">
-                ここに、みんなが作ったゲームが集まります。<br>
-                ぜひ遊んでみて、感想や「もっとこうしたら？」という改善アイデアを送ってください！
-            </p>
-            
+            <h2 class="section-title">みんなのゲームライブラリ</h2>
             <div class="game-list">
-                
-                <!-- ▼ここからゲーム１つの情報▼ -->
+                <!-- ゲームカード1 -->
                 <div class="game-card">
-                    <img src="https://placehold.co/600x400/27ae60/ffffff?text=Game+Image1" alt="（ゲーム1の画像の説明）" class="game-card-image">
-                    <div class="game-card-content">
-                        <h3>（ここにゲームタイトル）</h3>
-                        <p>（ここにゲームの概要を説明します。ルールの簡単な説明や、このゲームの面白さのポイントなどを書きましょう。）</p>
-                        <div class="game-card-actions">
-                            <a href="（ここにゲームのURL）" target="_blank" class="button">プレイする</a>
-                            <a href="（ここにGoogleフォームのURL）" target="_blank" class="button feedback">改修要望を送る</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- ▲ここまでがゲーム１つの情報▲ -->
-
-                <!-- ▼ここからゲーム２つ目の情報▼ -->
-                <div class="game-card">
-                    <img src="https://placehold.co/600x400/f39c12/333333?text=Game+Image2" alt="（ゲーム2の画像の説明）" class="game-card-image">
+                    <img src="https://placehold.co/400x225/1877f2/ffffff?text=Game+1" alt="ゲーム1の画像" class="game-card-image">
                     <div class="game-card-content">
                         <h3>（ここにゲームタイトル）</h3>
                         <p>（ここにゲームの概要を説明します。）</p>
-                        <div class="game-card-actions">
-                            <a href="（ここにゲームのURL）" target="_blank" class="button">プレイする</a>
-                            <a href="（ここにGoogleフォームのURL）" target="_blank" class="button feedback">改修要望を送る</a>
-                        </div>
+                    </div>
+                    <div class="game-card-actions">
+                        <a href="（ここにゲームのURL）" target="_blank" class="button">プレイする</a>
+                        <a href="（ここにGoogleフォームのURL）" target="_blank" class="button secondary">意見を送る</a>
                     </div>
                 </div>
-                <!-- ▲ここまでがゲーム２つ目の情報▲ -->
-                
-                <!-- ゲームが増えたら、<div class="game-card">...</div>のブロックをコピーして追加してください -->
-
+                <!-- ゲームカード2 -->
+                <div class="game-card">
+                    <img src="https://placehold.co/400x225/42b72a/ffffff?text=Game+2" alt="ゲーム2の画像" class="game-card-image">
+                    <div class="game-card-content">
+                        <h3>（ここにゲームタイトル）</h3>
+                        <p>（ここにゲームの概要を説明します。）</p>
+                    </div>
+                    <div class="game-card-actions">
+                        <a href="（ここにゲームのURL）" target="_blank" class="button">プレイする</a>
+                        <a href="（ここにGoogleフォームのURL）" target="_blank" class="button secondary">意見を送る</a>
+                    </div>
+                </div>
+                <!-- ゲームカード3 -->
+                 <div class="game-card">
+                    <img src="https://placehold.co/400x225/f39c12/ffffff?text=Game+3" alt="ゲーム3の画像" class="game-card-image">
+                    <div class="game-card-content">
+                        <h3>（ここにゲームタイトル）</h3>
+                        <p>（ここにゲームの概要を説明します。）</p>
+                    </div>
+                    <div class="game-card-actions">
+                        <a href="（ここにゲームのURL）" target="_blank" class="button">プレイする</a>
+                        <a href="（ここにGoogleフォームのURL）" target="_blank" class="button secondary">意見を送る</a>
+                    </div>
+                </div>
+                <!-- ゲームが増えたら、<div class="game-card">...</div>をコピーして追加 -->
             </div>
         </div>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2025 すずかんゼミ01班 All Rights Reserved.</p>
     </footer>
 
