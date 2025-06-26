@@ -1,4 +1,4 @@
-/* style.css (最終修正版) */
+/* style.css (センタリング最終修正版) */
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -46,7 +46,7 @@ body {
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-.site-header .container-inner {
+.header-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -85,14 +85,12 @@ body {
 .site-content {
     padding: 32px 0;
 }
-h1, h2, h3, p, li {
-    text-align: left;
-}
 h2.section-title {
     font-size: 1.5rem;
     margin: 0 0 20px 0;
     padding-bottom: 15px;
     border-bottom: 3px solid var(--primary-color);
+    text-align: left;
 }
 
 .two-column-layout {
@@ -112,6 +110,12 @@ h2.section-title {
     border-radius: var(--border-radius);
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     margin-bottom: 24px;
+    text-align: left;
+}
+.card h3 {
+    font-size: 1.25rem;
+    margin-top: 0;
+    color: var(--primary-color);
 }
 .card .button {
     margin-top: 20px;
@@ -127,32 +131,26 @@ h2.section-title {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-.button {
-    display: inline-block;
-    width: auto;
-    text-align: center;
-    background-color: var(--primary-color);
-    color: white !important;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s;
+@media (min-width: 992px) {
+    .game-list {
+        grid-template-columns: repeat(2, 1fr); /* メインカラム内なので最大2列に */
+    }
 }
-.button:hover {
-    background-color: #166fe5;
+.main-column .game-list {
+     @media (min-width: 1200px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
-.button.secondary {
-    background-color: var(--secondary-color);
-}
-.button.secondary:hover {
-    background-color: #3ca329;
-}
+
+
 .game-card {
+    background-color: var(--body-bg-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
     border: 1px solid var(--border-color);
-    /* 他のスタイルは省略 */
 }
 .game-card-image {
     width: 100%;
@@ -178,6 +176,29 @@ h2.section-title {
     display: flex;
     gap: 10px;
 }
+.button {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.button:hover {
+    background-color: #166fe5;
+}
+.button.secondary {
+    background-color: var(--secondary-color);
+}
+.button.secondary:hover {
+    background-color: #3ca329;
+}
 
 .team-member {
     display: flex;
@@ -199,7 +220,7 @@ h2.section-title {
 }
 
 @media (max-width: 959px) {
-    .site-header .container-inner {
+    .header-inner {
         flex-direction: column;
         gap: 20px;
     }
