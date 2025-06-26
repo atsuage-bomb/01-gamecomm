@@ -8,67 +8,53 @@
 </head>
 <body>
 
-    <header>
+    <header class="site-header">
         <div class="container">
-            <h1><a href="index.html" style="color:white; text-decoration: none;">すずかんゼミ01班</a></h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">トップ</a></li>
-                    <li><a href="concept.html">コンセプト</a></li>
-                    <li><a href="games.html">ゲーム一覧</a></li>
-                    <li><a href="about.html" class="active">チーム紹介</a></li>
-                </ul>
+            <div class="site-logo">
+                <a href="index.html">ゲーム共創の広場</a>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">トップ</a>
+                <a href="concept.html">コンセプト</a>
+                <a href="games.html">ゲーム一覧</a>
+                <a href="about.html" class="active">チーム紹介</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="section">
-            <div class="container">
-                <h2 class="animate-item">私たちについて</h2>
-                <p class="section-description animate-item">（ここに、すずかんゼミ01班の紹介文や、このプロジェクトを始めた経緯などを記述します。）</p>
-                
-                <!-- メンバー紹介 -->
-                <div class="team-member animate-item">
-                    <img src="https://placehold.co/150x150/34495e/ffffff?text=Photo" alt="メンバー1の写真" class="team-member-img">
-                    <div class="team-member-info">
-                        <h3>（氏名）</h3>
-                        <p><strong>役割：</strong>（例：プロジェクトリーダー）</p>
-                        <p>（ここに自己紹介文やプロジェクトにかける意気込みなどを書きます。）</p>
-                    </div>
-                </div>
-
-                <div class="team-member animate-item" style="transition-delay: 0.1s;">
-                    <img src="https://placehold.co/150x150/95a5a6/ffffff?text=Photo" alt="メンバー2の写真" class="team-member-img">
-                    <div class="team-member-info">
-                        <h3>（氏名）</h3>
-                        <p><strong>役割：</strong>（例：エンジニア）</p>
-                        <p>（ここに自己紹介文やプロジェクトにかける意気込みなどを書きます。）</p>
-                    </div>
-                </div>
-
+    <main class="site-content">
+        <div class="container">
+            <div class="card">
+                <h2 class="section-title">私たちについて</h2>
+                <p>（ここに、すずかんゼミ01班の紹介文や、このプロジェクトを始めた経緯などを記述します。）</p>
             </div>
-        </section>
+            <div class="card">
+                <h2 class="section-title">メンバー紹介</h2>
+                <!-- メンバー1人目 -->
+                <div class="team-member">
+                    <img src="https://placehold.co/150x150/3d3d3d/ffffff?text=Photo" alt="メンバー1の写真" class="team-member-img">
+                    <div class="team-member-info">
+                        <h3>（氏名）</h3>
+                        <p><strong>役割：</strong>（例：プロジェクトリーダー）<br>（ここに自己紹介文や意気込みなどを書きます。）</p>
+                    </div>
+                </div>
+                <hr style="border:none; border-top:1px solid var(--border-color); margin: 20px 0;">
+                <!-- メンバー2人目 -->
+                <div class="team-member">
+                    <img src="https://placehold.co/150x150/757575/ffffff?text=Photo" alt="メンバー2の写真" class="team-member-img">
+                    <div class="team-member-info">
+                        <h3>（氏名）</h3>
+                        <p><strong>役割：</strong>（例：エンジニア）<br>（ここに自己紹介文や意気込みなどを書きます。）</p>
+                    </div>
+                </div>
+                 <!-- メンバーが増えたら<hr>と<div class="team-member">...</div>をコピーして追加 -->
+            </div>
+        </div>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2025 すずかんゼミ01班 All Rights Reserved.</p>
     </footer>
 
-    <!-- アニメーション用のJavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.animate-item').forEach(el => {
-                observer.observe(el);
-            });
-        });
-    </script>
 </body>
 </html>
