@@ -147,7 +147,9 @@ h2 {
 /* --- ゲームリスト --- */
 .game-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* ★★★ 修正点 ★★★ */
+    /* 最小幅を300pxから280pxに変更し、狭い画面でもカードがはみ出さないように調整 */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
@@ -168,9 +170,9 @@ h2 {
 }
 
 .game-card-image {
-    width: 100%;
+    width: 100%; /* 親要素の幅いっぱいに広がる */
     height: 180px;
-    object-fit: cover;
+    object-fit: cover; /* アスペクト比を保ったまま領域を埋める */
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -215,6 +217,7 @@ h2 {
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--border-color);
+    flex-shrink: 0; /* ★★★ 追加 ★★★ 画像が縮まないようにする */
 }
 
 .team-member-info h3 {
