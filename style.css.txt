@@ -1,12 +1,18 @@
-/* style.css (ユニバーサルデザイン版) */
-/* このファイルはサイト全体のデザインを定義します。 */
+/* style.css (ユニバーサルデザイン・レイアウト改善版) */
+
+/* ★★★ 改善点 ★★★ */
+/* 全ての要素に適用し、paddingやborderが幅に影響しないようにする設定。
+   これにより、意図しないはみ出しを根本的に防ぎます。 */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 /* :root は色の変数を定義する場所です。ここを変更するとサイト全体の配色を一括で変更できます。*/
 :root {
-    --bg-color: #fdfdfd; /* 背景色 (ごく薄いクリーム色) */
+    --bg-color: #f8f9fa; /* 背景色 (ごく薄いグレー) */
     --text-color: #333333; /* テキストカラー (真っ黒ではない、濃い灰色) */
     --card-bg-color: #ffffff; /* カードの背景色 */
-    --border-color: #eeeeee; /* 罫線の色 */
+    --border-color: #e0e0e0; /* 罫線の色を少し濃く */
     
     /* テーマカラー */
     --header-footer-bg: #2c3e50; /* ヘッダー・フッターの背景 (落ち着いた紺色) */
@@ -33,7 +39,9 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1000px;
+    /* ★★★ 改善点 ★★★ */
+    /* PCでの最大幅を少し広げ、ゆとりのあるレイアウトに */
+    max-width: 1100px; 
     margin: 0 auto;
     padding: 20px;
 }
@@ -45,12 +53,10 @@ header {
     padding: 30px 0;
     text-align: center;
 }
-
 header h1 {
     margin: 0;
     font-size: 2.3rem;
 }
-
 header p {
     margin: 5px 0 0;
     font-size: 1.1rem;
@@ -65,19 +71,16 @@ nav {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     text-align: center;
 }
-
 nav ul li {
     display: inline-block;
     margin: 0 10px;
 }
-
 nav ul li a {
     color: white;
     text-decoration: none;
@@ -87,7 +90,6 @@ nav ul li a {
     border-radius: var(--border-radius-main);
     transition: background-color 0.3s;
 }
-
 nav ul li a:hover, nav ul li a.active {
     background-color: rgba(255, 255, 255, 0.15);
 }
@@ -103,20 +105,38 @@ main {
     padding: 40px 0;
 }
 
+/* ★★★ 改善点 ★★★ */
+/* 見出しを中央揃えにし、短いアンダーラインを引くデザインに変更 */
 h2 {
-    font-size: 1.9rem;
+    font-size: 2rem;
     color: var(--header-footer-bg);
-    border-bottom: 2px solid var(--primary-action-color);
-    padding-bottom: 15px;
-    margin-bottom: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    border-bottom: none; /* 既存のボーダーは削除 */
+    position: relative;
+}
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-action-color);
+    border-radius: 2px;
 }
 
 .section {
     background-color: var(--card-bg-color);
-    padding: 30px 40px;
+    /* ★★★ 改善点 ★★★ */
+    /* 左右の余白を広げ、中央に寄った印象に */
+    padding: 40px 50px; 
     margin-bottom: 30px;
     border-radius: var(--border-radius-main);
     border: 1px solid var(--border-color);
+    text-align: center; /* セクション内のテキストやボタンを中央揃えに */
 }
 
 /* --- ボタン --- */
@@ -124,31 +144,31 @@ h2 {
     display: inline-block;
     background-color: var(--primary-action-color);
     color: white !important;
-    padding: 15px 35px; /* ボタンを大きく、押しやすく */
+    padding: 15px 40px; /* ボタンを大きく、押しやすく */
     text-decoration: none;
     border-radius: var(--border-radius-main);
-    font-weight: bold;
+    /* ★★★ 改善点 ★★★ */
+    font-weight: bold; /* 文字を太くして視認性アップ */
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1); /* わずかに影をつけ立体感を出す */
     transition: transform 0.2s, box-shadow 0.2s;
     border: none;
     cursor: pointer;
     font-size: 1.1rem;
 }
-
 .button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
-
 .button.feedback {
     background-color: var(--secondary-action-color);
-    color: var(--text-color) !important; /* オレンジには濃い文字色を */
+    color: #333 !important; /* オレンジには濃い文字色を */
 }
 
 /* --- ゲームリスト --- */
 .game-list {
     display: grid;
-    /* ★★★ 修正点 ★★★ */
-    /* 最小幅を300pxから280pxに変更し、狭い画面でもカードがはみ出さないように調整 */
+    /* ★★★ 改善点 ★★★ */
+    /* 最小幅を280pxに設定し、狭い画面でもカードがはみ出さないように */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
@@ -162,17 +182,17 @@ h2 {
     display: flex;
     flex-direction: column;
     transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left; /* カードの中身は左揃えに戻す */
 }
-
 .game-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .game-card-image {
-    width: 100%; /* 親要素の幅いっぱいに広がる */
+    width: 100%;
     height: 180px;
-    object-fit: cover; /* アスペクト比を保ったまま領域を埋める */
+    object-fit: cover;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -182,12 +202,12 @@ h2 {
     display: flex;
     flex-direction: column;
 }
-
 .game-card h3 {
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 1.4rem;
     color: var(--header-footer-bg);
+    text-align: center; /* カード内のタイトルは中央揃えに */
 }
 
 .game-card-actions {
@@ -195,7 +215,6 @@ h2 {
     display: flex;
     gap: 15px;
 }
-
 .game-card-actions .button {
     flex: 1;
     text-align: center;
@@ -209,17 +228,16 @@ h2 {
     align-items: center;
     gap: 30px;
     margin-bottom: 40px;
+    text-align: left; /* チーム紹介は左揃え */
 }
-
 .team-member-img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--border-color);
-    flex-shrink: 0; /* ★★★ 追加 ★★★ 画像が縮まないようにする */
+    flex-shrink: 0;
 }
-
 .team-member-info h3 {
     margin: 0 0 5px 0;
     font-size: 1.5rem;
@@ -250,6 +268,6 @@ footer {
         padding: 15px;
     }
     .section {
-        padding: 25px 20px;
+        padding: 30px 20px;
     }
 }
