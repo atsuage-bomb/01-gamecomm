@@ -3,94 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ゲーム一覧 | すずかんゼミ01班プロジェクト</title>
+    <title>コンセプト | すずかんゼミ01班プロジェクト</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <header class="site-header">
         <div class="container">
-            <h1><a href="index.html" style="color:white; text-decoration: none;">すずかんゼミ01班</a></h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">トップ</a></li>
-                    <li><a href="concept.html">コンセプト</a></li>
-                    <li><a href="games.html" class="active">ゲーム一覧</a></li>
-                    <li><a href="about.html">チーム紹介</a></li>
-                </ul>
+            <div class="site-logo">
+                <a href="index.html">ゲーム共創の広場</a>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">トップ</a>
+                <a href="concept.html" class="active">コンセプト</a>
+                <a href="games.html">ゲーム一覧</a>
+                <a href="about.html">チーム紹介</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="section">
-            <div class="container">
-                <h2 class="animate-item">みんなのゲームライブラリ</h2>
-                <p class="section-description animate-item">
-                    ここに、みんなが作ったゲームが集まります。<br>
-                    ぜひ遊んでみて、感想や「もっとこうしたら？」という改善アイデアを送ってください！
-                </p>
+    <main class="site-content">
+        <div class="container">
+            <div class="card">
+                <h2 class="section-title">私たちの挑戦：ゲームによる世代間交流の創出</h2>
+                <p>現代社会は、ライフスタイルの多様化やコミュニティの変化により、異なる世代間の交流機会が減少し、時として分断が生まれています。私たちは、この社会的な課題に対し、ゲームが持つ「誰もが夢中になれる力」を通じてアプローチします。</p>
                 
-                <div class="game-list">
-                    <!-- ゲームカード1 -->
-                    <div class="game-card animate-item">
-                        <img src="https://placehold.co/600x400/00A968/ffffff?text=Game+1" alt="ゲーム1の画像" class="game-card-image">
-                        <div class="game-card-content">
-                            <h3>（ここにゲームタイトル）</h3>
-                            <p>（ここにゲームの概要を説明します。）</p>
-                        </div>
-                        <div class="game-card-actions">
-                            <a href="（ここにゲームのURL）" target="_blank" class="button">プレイする</a>
-                            <a href="（ここにGoogleフォームのURL）" target="_blank" class="button feedback">改修要望を送る</a>
-                        </div>
-                    </div>
-                    <!-- ゲームカード2 -->
-                     <div class="game-card animate-item" style="transition-delay: 0.1s;">
-                        <img src="https://placehold.co/600x400/f39c12/ffffff?text=Game+2" alt="ゲーム2の画像" class="game-card-image">
-                        <div class="game-card-content">
-                            <h3>（ここにゲームタイトル）</h3>
-                            <p>（ここにゲームの概要を説明します。）</p>
-                        </div>
-                        <div class="game-card-actions">
-                            <a href="（ここにゲームのURL）" target="_blank" class="button">プレイする</a>
-                            <a href="（ここにGoogleフォームのURL）" target="_blank" class="button feedback">改修要望を送る</a>
-                        </div>
-                    </div>
-                    <!-- ゲームカード3 -->
-                     <div class="game-card animate-item" style="transition-delay: 0.2s;">
-                        <img src="https://placehold.co/600x400/3498db/ffffff?text=Game+3" alt="ゲーム3の画像" class="game-card-image">
-                        <div class="game-card-content">
-                            <h3>（ここにゲームタイトル）</h3>
-                            <p>（ここにゲームの概要を説明します。）</p>
-                        </div>
-                        <div class="game-card-actions">
-                            <a href="（ここにゲームのURL）" target="_blank" class="button">プレイする</a>
-                            <a href="（ここにGoogleフォームのURL）" target="_blank" class="button feedback">改修要望を送る</a>
-                        </div>
-                    </div>
-                </div>
+                <h3>誰もが「作り手」であり、「遊び手」</h3>
+                <p>このサイトは、単なるゲームの公開場所ではありません。AIツールなどの新しい技術のサポートを受けながら、誰もがアイデアを形にする「作り手」になれる可能性を広げます。そして、誰もが「遊び手」として、他の人が作ったゲームを楽しみ、意見を交わすことができます。</p>
+
+                <h3>「作り、遊び、育てる」創造的なサイクル</h3>
+                <p>活動の核となるのは、<strong>【作る → 遊ぶ → 育てる】</strong>という創造的なサイクルです。</p>
+                <ol style="line-height: 2;">
+                    <li><strong>作る (Create)</strong>: 自分のアイデアを形にし、ゲームを制作・公開します。</li>
+                    <li><strong>遊ぶ (Play)</strong>: 他の人が作った様々なゲームを体験し、面白さや可能性を発見します。</li>
+                    <li><strong>育てる (Grow)</strong>: 遊びながら意見を活発に交換し、みんなでゲームを改善していきます。</li>
+                </ol>
             </div>
-        </section>
+        </div>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2025 すずかんゼミ01班 All Rights Reserved.</p>
     </footer>
 
-    <!-- アニメーション用のJavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.animate-item').forEach(el => {
-                observer.observe(el);
-            });
-        });
-    </script>
 </body>
 </html>
