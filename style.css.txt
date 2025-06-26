@@ -1,30 +1,31 @@
-/* style.css (ユニバーサルデザイン・レイアウト改善版) */
+/* style.css (LIG風デザイン・アニメーション版) */
 
-/* ★★★ 改善点 ★★★ */
-/* 全ての要素に適用し、paddingやborderが幅に影響しないようにする設定。
-   これにより、意図しないはみ出しを根本的に防ぎます。 */
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
-/* :root は色の変数を定義する場所です。ここを変更するとサイト全体の配色を一括で変更できます。*/
 :root {
-    --bg-color: #f8f9fa; /* 背景色 (ごく薄いグレー) */
-    --text-color: #333333; /* テキストカラー (真っ黒ではない、濃い灰色) */
-    --card-bg-color: #ffffff; /* カードの背景色 */
-    --border-color: #e0e0e0; /* 罫線の色を少し濃く */
+    --bg-color: #ffffff; /* 背景色 (白) */
+    --text-color: #38435A; /* テキストカラー (濃い藍色) */
+    --text-color-light: #596377; /* 少し薄いテキストカラー */
+    --border-color: #eef0f4; /* 罫線の色 */
     
     /* テーマカラー */
-    --header-footer-bg: #2c3e50; /* ヘッダー・フッターの背景 (落ち着いた紺色) */
-    --nav-bg: #34495e; /* ナビゲーションの背景 (少し明るい紺色) */
-    --primary-action-color: #27ae60; /* メインのボタンの色 (はっきりした緑) */
-    --secondary-action-color: #f39c12; /* サブのボタンの色 (親しみやすいオレンジ) */
+    --header-bg: rgba(44, 62, 80, 0.9); /* ヘッダーの背景 (半透明の紺色) */
+    --footer-bg: #2c3e50; /* フッターの背景 (紺色) */
+    --primary-color: #00A968; /* メインカラー (緑) */
+    --secondary-color: #f39c12; /* アクセントカラー (オレンジ) */
 
     /* フォントとレイアウト */
-    --font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    --font-size-base: 17px; /* 基本の文字サイズを少し大きく */
-    --line-height-base: 1.8; /* 行間を広めに */
-    --border-radius-main: 12px; /* 角の丸み */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-size-base: 16px; 
+    --line-height-base: 1.8;
+    --border-radius-main: 8px; /* 角の丸み */
+    --content-width: 1080px; /* コンテンツの最大幅 */
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -38,187 +39,179 @@ body {
 }
 
 .container {
-    width: 90%;
-    /* ★★★ 改善点 ★★★ */
-    /* PCでの最大幅を少し広げ、ゆとりのあるレイアウトに */
-    max-width: 1100px; 
+    width: 92%;
+    max-width: var(--content-width);
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 0;
 }
 
 /* --- ヘッダーとナビゲーション --- */
 header {
-    background-color: var(--header-footer-bg);
+    background-color: var(--header-bg);
     color: white;
-    padding: 30px 0;
-    text-align: center;
-}
-header h1 {
-    margin: 0;
-    font-size: 2.3rem;
-}
-header p {
-    margin: 5px 0 0;
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-nav {
-    background-color: var(--nav-bg);
     padding: 15px 0;
+    text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px); /* 背景をぼかす */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
 }
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 nav ul li {
     display: inline-block;
-    margin: 0 10px;
+    margin-left: 25px;
 }
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1rem;
-    padding: 8px 16px;
-    border-radius: var(--border-radius-main);
+    padding: 5px 10px;
+    border-radius: 5px;
     transition: background-color 0.3s;
 }
 nav ul li a:hover, nav ul li a.active {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* --- アクセシビリティ：キーボード操作で選択中のリンクを分かりやすく --- */
-a:focus, button:focus {
-    outline: 3px solid var(--secondary-action-color);
-    outline-offset: 2px;
+/* --- トップページのヒーローセクション --- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    min-height: 400px;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://placehold.co/1600x900/2c3e50/ffffff?text=Hello+Creators!');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    max-width: 600px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 /* --- メインコンテンツ --- */
 main {
-    padding: 40px 0;
+    padding: 80px 0;
 }
-
-/* ★★★ 改善点 ★★★ */
-/* 見出しを中央揃えにし、短いアンダーラインを引くデザインに変更 */
 h2 {
-    font-size: 2rem;
-    color: var(--header-footer-bg);
-    padding-bottom: 20px;
-    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
     text-align: center;
-    border-bottom: none; /* 既存のボーダーは削除 */
-    position: relative;
 }
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: var(--primary-action-color);
-    border-radius: 2px;
+.section-description {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+    color: var(--text-color-light);
 }
-
 .section {
-    background-color: var(--card-bg-color);
-    /* ★★★ 改善点 ★★★ */
-    /* 左右の余白を広げ、中央に寄った印象に */
-    padding: 40px 50px; 
-    margin-bottom: 30px;
-    border-radius: var(--border-radius-main);
-    border: 1px solid var(--border-color);
-    text-align: center; /* セクション内のテキストやボタンを中央揃えに */
+    padding: 60px 0;
+}
+.section p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* --- ボタン --- */
 .button {
     display: inline-block;
-    background-color: var(--primary-action-color);
+    background-color: var(--primary-color);
     color: white !important;
-    padding: 15px 40px; /* ボタンを大きく、押しやすく */
+    padding: 14px 40px;
     text-decoration: none;
-    border-radius: var(--border-radius-main);
-    /* ★★★ 改善点 ★★★ */
-    font-weight: bold; /* 文字を太くして視認性アップ */
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.1); /* わずかに影をつけ立体感を出す */
-    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 50px; /* 丸いボタン */
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
     border: none;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 169, 104, 0.3);
 }
 .button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0, 169, 104, 0.4);
 }
 .button.feedback {
-    background-color: var(--secondary-action-color);
-    color: #333 !important; /* オレンジには濃い文字色を */
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+.button.feedback:hover {
+     box-shadow: 0 7px 20px rgba(243, 156, 18, 0.4);
 }
 
 /* --- ゲームリスト --- */
 .game-list {
     display: grid;
-    /* ★★★ 改善点 ★★★ */
-    /* 最小幅を280pxに設定し、狭い画面でもカードがはみ出さないように */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
 }
-
 .game-card {
-    background-color: var(--card-bg-color);
+    background-color: white;
     border-radius: var(--border-radius-main);
     border: 1px solid var(--border-color);
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.07);
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-align: left; /* カードの中身は左揃えに戻す */
 }
-.game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
 .game-card-image {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
-    border-bottom: 1px solid var(--border-color);
 }
-
 .game-card-content {
     padding: 25px;
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
 }
 .game-card h3 {
     margin-top: 0;
     margin-bottom: 15px;
-    font-size: 1.4rem;
-    color: var(--header-footer-bg);
-    text-align: center; /* カード内のタイトルは中央揃えに */
+    font-size: 1.3rem;
+    font-weight: bold;
 }
-
+.game-card p {
+    color: var(--text-color-light);
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
 .game-card-actions {
-    margin-top: 20px;
+    padding: 0 25px 25px 25px;
     display: flex;
     gap: 15px;
 }
 .game-card-actions .button {
     flex: 1;
-    text-align: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 12px 15px;
 }
 
@@ -227,47 +220,47 @@ h2::after {
     display: flex;
     align-items: center;
     gap: 30px;
-    margin-bottom: 40px;
-    text-align: left; /* チーム紹介は左揃え */
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--border-radius-main);
+    border: 1px solid var(--border-color);
 }
 .team-member-img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--border-color);
     flex-shrink: 0;
-}
-.team-member-info h3 {
-    margin: 0 0 5px 0;
-    font-size: 1.5rem;
 }
 
 /* --- フッター --- */
 footer {
-    background-color: var(--header-footer-bg);
+    background-color: var(--footer-bg);
     color: white;
     text-align: center;
-    padding: 30px 0;
-    margin-top: 40px;
+    padding: 40px 0;
 }
+
+/* --- アニメーション --- */
+.animate-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* --- スマートフォン対応 --- */
 @media (max-width: 768px) {
-    body {
-        font-size: 16px;
-    }
-    header h1 {
-        font-size: 1.9rem;
-    }
-    .team-member {
-        flex-direction: column;
-        text-align: center;
-    }
-    .container {
-        padding: 15px;
-    }
-    .section {
-        padding: 30px 20px;
-    }
+    body { font-size: 15px; }
+    header .container { flex-direction: column; gap: 10px; }
+    nav ul li { margin: 0 10px; }
+    .hero-title { font-size: 2.2rem; }
+    h2 { font-size: 2rem; }
+    .team-member { flex-direction: column; text-align: center; }
 }
