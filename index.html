@@ -8,87 +8,76 @@
 </head>
 <body>
 
-    <header>
+    <header class="site-header">
         <div class="container">
-            <h1><a href="index.html" style="color:white; text-decoration: none;">すずかんゼミ01班</a></h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">トップ</a></li>
-                    <li><a href="concept.html">コンセプト</a></li>
-                    <li><a href="games.html">ゲーム一覧</a></li>
-                    <li><a href="about.html">チーム紹介</a></li>
-                </ul>
+            <div class="site-logo">
+                <a href="index.html">ゲーム共創の広場</a>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="active">トップ</a>
+                <a href="concept.html">コンセプト</a>
+                <a href="games.html">ゲーム一覧</a>
+                <a href="about.html">チーム紹介</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <!-- メインビジュアル -->
-        <section class="hero">
-            <h2 class="hero-title">ゲームでツナガル、<br>世代をコエル。</h2>
-            <p class="hero-subtitle">ここは、みんなでゲームを「作り、遊び、育てる」場所。<br>創造の輪に、あなたも参加しませんか？</p>
-        </section>
-
-        <!-- コンセプト紹介セクション -->
-        <section class="section">
-            <div class="container">
-                <h2 class="animate-item">私たちの想い</h2>
-                <p class="section-description animate-item">
-                    現代社会が抱える、世代間の交流機会の減少や分断。私たちはその解決策として、誰もがゲームの「作り手」にも「遊び手」にもなれる、新しい交流の形を提案します。
-                </p>
-                <div class="animate-item" style="text-align: center;">
-                    <a href="concept.html" class="button">コンセプトを詳しく見る</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ゲーム一覧セクション -->
-        <section class="section" style="background-color: #f8f9fa;">
-            <div class="container">
-                <h2 class="animate-item">注目のゲーム</h2>
-                <p class="section-description animate-item">
-                    みんなが作ったゲームがここに集まります。ぜひ遊んでみて、感想や改善アイデアを送ってください！
-                </p>
+    <main class="site-content">
+        <div class="container two-column-layout">
+            
+            <!-- メインコンテンツエリア -->
+            <div class="main-column">
+                <h2 class="section-title">注目のゲーム</h2>
                 <div class="game-list">
                     <!-- ゲームカード1 -->
-                    <div class="game-card animate-item">
-                        <img src="https://placehold.co/600x400/00A968/ffffff?text=Game+1" alt="ゲーム1の画像" class="game-card-image">
+                    <div class="game-card">
+                        <img src="https://placehold.co/400x225/1877f2/ffffff?text=Game+1" alt="ゲーム1の画像" class="game-card-image">
                         <div class="game-card-content">
                             <h3>（ここにゲームタイトル）</h3>
-                            <p>（ここにゲームの簡単な説明文が入ります。どんなゲームか、どんな特徴があるかを書きます。）</p>
+                            <p>（ここにゲームの簡単な説明文が入ります。）</p>
                         </div>
                         <div class="game-card-actions">
                             <a href="（ゲームのURL）" target="_blank" class="button">プレイする</a>
-                            <a href="（GoogleフォームのURL）" target="_blank" class="button feedback">意見を送る</a>
+                        </div>
+                    </div>
+                    <!-- ゲームカード2 -->
+                    <div class="game-card">
+                        <img src="https://placehold.co/400x225/42b72a/ffffff?text=Game+2" alt="ゲーム2の画像" class="game-card-image">
+                        <div class="game-card-content">
+                            <h3>（ここにゲームタイトル）</h3>
+                            <p>（ここにゲームの簡単な説明文が入ります。）</p>
+                        </div>
+                        <div class="game-card-actions">
+                            <a href="（ゲームのURL）" target="_blank" class="button">プレイする</a>
                         </div>
                     </div>
                     <!-- 他のゲームカードもここに追加 -->
                 </div>
-                <div class="animate-item" style="text-align: center; margin-top: 50px;">
-                    <a href="games.html" class="button">すべてのゲームを見る</a>
+                <div style="margin-top:20px;">
+                     <a href="games.html" class="button">すべてのゲームを見る</a>
                 </div>
             </div>
-        </section>
+
+            <!-- サイドバーエリア -->
+            <aside class="sidebar">
+                <div class="card">
+                    <h3>ようこそ！</h3>
+                    <p>ここは、みんなでゲームを「作り、遊び、育てる」場所。創造の輪に、あなたも参加しませんか？</p>
+                    <a href="concept.html" class="button">私たちの想い</a>
+                </div>
+                <div class="card">
+                    <h3>ご意見募集中！</h3>
+                    <p>ゲームへの感想や「もっとこうしたい！」という改善アイデアをお待ちしています。</p>
+                    <a href="（総合GoogleフォームのURL）" target="_blank" class="button secondary">フィードバックを送る</a>
+                </div>
+            </aside>
+
+        </div>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2025 すずかんゼミ01班 All Rights Reserved.</p>
     </footer>
-    
-    <!-- アニメーション用のJavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.animate-item').forEach(el => {
-                observer.observe(el);
-            });
-        });
-    </script>
+
 </body>
 </html>
