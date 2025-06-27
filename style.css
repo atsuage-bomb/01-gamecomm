@@ -1,18 +1,23 @@
-/* style.css (レポート風デザイン 최종版) */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+/* style.css (最終デザイン) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@700&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; }
 
 :root {
-    --bg-color: #f8f8f8; /* 背景色 (非常に薄いグレー) */
+    --bg-color: #f8f9fa; /* 背景色を少し調整 */
     --content-bg-color: #ffffff;
-    --text-color: #3f3f46; /* テキストカラー (濃いウォームグレー) */
-    --text-color-light: #71717a;
-    --border-color: #e4e4e7;
+    --text-color: #334155; /* テキストカラー (濃いスレートブルー) */
+    --text-color-light: #64748b;
+    --border-color: #e2e8f0;
     --accent-color: #f28b82; /* アクセントカラー (温かみのあるコーラルピンク) */
     --accent-color-dark: #e57373;
-    --footer-bg: #1f2937; /* フッターの背景 (濃いスレート) */
+    --primary-button-color: #3b82f6; /* 「プレイする」ボタンの色 */
+    --secondary-button-color: #16a34a; /* 「意見を送る」ボタンの色 */
+    --tertiary-button-color: #f59e0b; /* 「開発ストーリー」ボタンの色 */
+    --header-bg: rgba(255, 255, 255, 0.9);
+    --footer-bg: #1e293b;
     --font-family: 'Noto Sans JP', sans-serif;
+    --font-family-logo: 'Poppins', sans-serif; /* ロゴ用フォント */
     --content-width: 1080px;
     --border-radius: 8px;
 }
@@ -25,63 +30,54 @@ body {
     padding-left: 20px; padding-right: 20px;
 }
 .site-header {
-    background-color: rgba(255, 255, 255, 0.9); padding: 15px 0; position: sticky; top: 0;
-    z-index: 1000; backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color);
+    background-color: var(--header-bg); padding: 15px 0; position: sticky; top: 0;
+    z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color);
 }
 .header-inner { display: flex; justify-content: space-between; align-items: center; }
 .site-logo a { text-decoration: none; }
 .site-logo .site-main-title {
-    color: var(--text-color); font-size: 1.5rem; font-weight: 700; margin: 0;
+    font-family: var(--font-family-logo); /* ★ ロゴ用フォントを適用 */
+    color: var(--text-color); font-size: 1.9rem; font-weight: 700; margin: 0;
 }
 .main-nav a {
     color: var(--text-color-light); text-decoration: none; font-weight: 500;
     padding: 8px 16px; margin: 0 8px; position: relative; transition: color 0.3s;
+    border-radius: var(--border-radius);
 }
 .main-nav a.active, .main-nav a:hover { color: var(--accent-color); }
-
-/* --- トップページのヒーローセクション --- */
-.hero-section {
-    text-align: center;
-    padding: 100px 20px;
-    background-color: #fff;
-    border-bottom: 1px solid var(--border-color);
-}
-.hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin: 0 0 20px 0;
-    line-height: 1.4;
-    color: var(--text-color);
-}
-.hero-title .accent { color: var(--accent-color); }
-.hero-subtitle {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-    color: var(--text-color-light);
-}
-.button {
-    display: inline-block; background-color: transparent; color: var(--accent-color) !important;
-    border: 2px solid var(--accent-color); padding: 12px 30px; text-decoration: none;
-    border-radius: 50px; font-weight: 700; transition: all 0.3s;
-}
-.button:hover { background-color: var(--accent-color); color: white !important; }
-
-/* --- メインコンテンツ --- */
-.site-content { padding: 50px 0; }
 .content-wrapper {
-    background-color: var(--content-bg-color);
-    padding: 40px;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
+    background-color: var(--content-bg-color); padding: 40px;
+    border-radius: var(--border-radius); border: 1px solid var(--border-color);
 }
 h2.section-title {
     font-size: 2rem; margin: 0 0 30px 0; padding-bottom: 20px; text-align: center;
     border-bottom: 1px solid var(--border-color); color: var(--text-color); font-weight: 700;
 }
-h3 { font-size: 1.4rem; margin-top: 40px; margin-bottom: 15px; color: var(--text-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; font-weight: 700;}
+h3 { font-size: 1.4rem; margin-top: 40px; margin-bottom: 15px; color: var(--text-color); border-left: 4px solid var(--accent-color); padding-left: 10px; font-weight: 700;}
+.hero-section {
+    text-align: center; padding: 100px 20px; background-color: #fff;
+    border-bottom: 1px solid var(--border-color);
+}
+.hero-title {
+    font-size: 3rem; font-weight: 700; margin: 0 0 20px 0;
+    line-height: 1.4; color: var(--text-color);
+}
+.hero-title .accent { color: var(--accent-color); }
+.hero-subtitle {
+    font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px auto;
+    color: var(--text-color-light);
+}
+.button {
+    display: inline-block; background-color: transparent; color: var(--primary-button-color) !important;
+    border: 2px solid var(--primary-button-color); padding: 12px 30px; text-decoration: none;
+    border-radius: 50px; font-weight: 700; transition: all 0.3s;
+}
+.button:hover { background-color: var(--primary-button-color); color: white !important; }
+.button.secondary { border-color: var(--secondary-button-color); color: var(--secondary-button-color) !important; }
+.button.secondary:hover { background-color: var(--secondary-button-color); color: white !important; }
+.button.tertiary { border-color: var(--tertiary-button-color); color: var(--tertiary-button-color) !important; }
+.button.tertiary:hover { background-color: var(--tertiary-button-color); color: white !important; }
 
-/* --- ゲームリスト --- */
 .game-list { display: grid; grid-template-columns: 1fr; gap: 30px; }
 @media (min-width: 768px) { .game-list { grid-template-columns: repeat(2, 1fr); } }
 .game-card {
@@ -95,21 +91,9 @@ h3 { font-size: 1.4rem; margin-top: 40px; margin-bottom: 15px; color: var(--text
 .game-card h3 { font-size: 1.3rem; margin: 0 0 10px 0; border: none; padding: 0; }
 .game-card p { font-size: 1rem; color: var(--text-color-light); flex-grow: 1; }
 .game-card-actions { padding: 0 25px 25px; display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto;}
-.game-card-actions .button {
-    font-size: 0.9rem; padding: 8px 20px; flex-grow: 1;
-    border-color: var(--accent-color-dark); color: var(--accent-color-dark) !important;
-}
-.game-card-actions .button:hover { background-color: var(--accent-color-dark); color: white !important; }
-.game-card-actions .button.secondary { border-color: #5a5a5a; color: #5a5a5a !important; }
-.game-card-actions .button.secondary:hover { background-color: #5a5a5a; color: white !important; }
+.game-card-actions .button { font-size: 0.9rem; padding: 8px 20px; flex-grow: 1; }
 
-/* --- その他 --- */
-.team-member { display: flex; align-items: center; gap: 20px; }
-.team-member-img { width: 80px; height: 80px; border-radius: 50%; }
 .site-footer { background-color: var(--footer-bg); color: #9ca3af; padding: 50px 0; text-align: center; font-size: 0.9rem;}
-.story-divider { border: 0; height: 1px; background-color: var(--border-color); margin: 40px 0; }
-.prompt-box { background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 20px; font-size: 1rem;}
-.prompt-box pre { margin: 0; white-space: pre-wrap; word-wrap: break-word; color: var(--text-color-light); }
 @media (max-width: 959px) {
     .header-inner { flex-direction: column; gap: 15px; }
     .main-nav { border-top: 1px solid var(--border-color); width: 100%; padding-top: 15px; text-align: center; }
