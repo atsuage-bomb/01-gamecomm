@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ゲーム情報エディター</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        .editor-form label { display: block; margin-bottom: 5px; font-weight: 500; color: var(--text-color-light); }
-        .editor-form input, .editor-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 6px; border: 1px solid var(--border-color); font-size: 1rem; }
-        .editor-form input:focus, .editor-form textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); outline: none; }
-        .editor-form textarea { min-height: 100px; }
-        .editor-form .button { width: 100%; padding: 15px; font-size: 1.1rem; }
-        #output-code { background-color: #e2e8f0; color: #1e293b; border-radius: var(--border-radius); white-space: pre-wrap; word-wrap: break-word; font-family: monospace; padding: 15px; }
+        .editor-form label { display: block; margin: 15px 0 5px; font-weight: 500; color: var(--text-color-light); }
+        .editor-form input, .editor-form textarea { width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--border-color); font-size: 1rem; transition: all 0.2s; }
+        .editor-form input:focus, .editor-form textarea:focus { border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(242, 139, 130, 0.3); outline: none; }
+        .editor-form textarea { min-height: 120px; }
+        #output-code { background-color: #1e293b; color: #e2e8f0; border-radius: var(--border-radius); white-space: pre-wrap; word-wrap: break-word; font-family: monospace; padding: 20px; line-height: 1.6;}
     </style>
 </head>
 <body>
@@ -28,7 +30,7 @@
 
     <main class="site-content">
         <div class="container">
-            <div class="card">
+            <div class="content-wrapper">
                 <h2 class="section-title">ゲームカード生成ツール</h2>
                 <p>以下のフォームに情報を入力し、「コードを生成」ボタンを押してください。<br>生成されたHTMLコードをコピーして、`games.html`に貼り付けると、新しいゲームを追加できます。</p>
                 
@@ -45,10 +47,12 @@
                     <input type="text" id="feedback-url" required>
                     <label for="story-url">開発ストーリーページのURL</label>
                     <input type="text" id="story-url" placeholder="story-game1.html など" required>
-                    <button type="button" class="button" onclick="generateCode()">コードを生成</button>
+                    <div style="margin-top: 20px;">
+                        <button type="button" class="button" onclick="generateCode()">コードを生成</button>
+                    </div>
                 </form>
 
-                <div id="output-area" style="display: none; margin-top: 30px;">
+                <div id="output-area" style="display: none; margin-top: 40px;">
                     <h3>生成されたHTMLコード</h3>
                     <p>以下のコードをコピーして、`games.html`ファイルの`<div class="game-list">`と`</div>`の間に貼り付けてください。</p>
                     <pre><code id="output-code"></code></pre>
@@ -71,7 +75,7 @@
                 return;
             }
 
-            const htmlCode = `<!-- ▼ここから ${title} の情報▼ -->
+            const htmlCode = `<!-- ▼ ${title} の情報 ▼ -->
 <div class="game-card">
     <img src="${imageUrl}" alt="${title}の画像" class="game-card-image">
     <div class="game-card-content">
@@ -83,9 +87,7 @@
         <a href="${feedbackUrl}" target="_blank" class="button secondary">意見を送る</a>
         <a href="${storyUrl}" class="button tertiary">開発ストーリー</a>
     </div>
-</div>
-<!-- ▲ここまでが ${title} の情報▲ -->`;
-
+</div>`;
             document.getElementById('output-code').textContent = htmlCode.trim();
             document.getElementById('output-area').style.display = 'block';
         }
