@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>開発ストーリー：(ここにゲーム名) | Game-Full Life</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="site-logo">
+                    <a href="index.html"><h1 class="site-main-title">Game-Full Life</h1></a>
+                </div>
+                <nav class="main-nav">
+                    <a href="index.html">トップ</a>
+                    <a href="concept.html">コンセプト</a>
+                    <a href="games.html">ゲーム一覧</a>
+                    <a href="about.html">チーム紹介</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2 class="section-title">開発ストーリー：hyper-block-breaker</h2>
+                <h3>開発中のエピソード</h3>
+                <p>音の素材無しで、生成AIのみで効果音の実装ができなかったので、次の課題にしたいと思っています。</p>
+                <hr class="story-divider">
+                <h3>使用したプロンプト</h3>
+                <p>このゲームの制作には、以下のようなプロンプト（AIへの指示文）を使用しました。</p>
+                <div class="prompt-box">
+                    <pre><code>https://atsuage-bomb.github.io/block-breaker/このブロック崩しのゲームを、PCでもスマホでも動作するようにレスポンシブに改修してください。その際、ゲームが楽しくなるように、ルールを再設定し、演出や機能を追加してください。</code></pre>
+                </div>
+                <div style="text-align:center; margin-top: 40px;"><a href="games.html" class="button">ゲーム一覧へ戻る</a></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 すずかんゼミ01班 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
